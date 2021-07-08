@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+{% load humanize %}
+{% if prod %}
+
+<div class="producto">
+
+    <div class="contenedor_producto">
+        <img src="{{ prod.imagen.url}}" alt="imagen producto">
+       
+        <div class="detalle">
+            <h5>{{prod.marca}}</h5>
+            <h2>{{prod.nombre | title}}</h2>
+            <h3>${{prod.precio | intcomma}}</h3>
+            <p>{{prod.descripcion}}</p>
+        </div>
+        <div class="card-footer text-center">
+            <a href="#" class="btn btn-succes">Agregar al carrrito</a>
+        </div>
+
+    </div>
+
+</div>
+
+
+{% else %}
+NO hay busqueda
+{% endif %}
+
+
+
+{% endblock %}

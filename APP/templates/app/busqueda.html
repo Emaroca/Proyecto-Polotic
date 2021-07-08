@@ -1,0 +1,33 @@
+{% extends 'app/base.html' %}
+
+
+{% block content %}
+{% load humanize %}
+
+{% if buscador %}
+
+    <h1>Resultado de busqueda {{buscador}}</h1>
+
+    {% for p in productos %}
+     
+        <div class="contenedor_producto">
+         
+            <img src="{{ p.imagen.url}}" alt="imagen producto">
+    
+            <div class="detalle">
+                <h5>{{p.marca}}</h5>
+                <h2>{{p.nombre | title}}</h2>
+                <h3>${{p.precio | intcomma }}</h3>
+            </div>
+
+    {% endfor %}
+
+    {% else %}
+
+<h1>No hay resultados</h1>
+{% endif %}
+
+
+
+
+{% endblock %}
